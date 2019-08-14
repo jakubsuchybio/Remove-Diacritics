@@ -27,9 +27,6 @@ namespace RemoveDiacritics
                     (FileNamesOptions opts) => RunActionAndReturnExitCode(opts, () => RemoverFileNames.FileNamesDiacriticsRemover(opts.Dirs)),
                     (ContentOptions opts) => RunActionAndReturnExitCode(opts, () => RemoverContent.ContentDiacriticsRemover(opts.Files)),
                     errors => 1);
-
-            //TODO Publish to github
-            //TODO Create an article
         }
 
         private static int RunActionAndReturnExitCode(ICommonOptions opts, Action action)

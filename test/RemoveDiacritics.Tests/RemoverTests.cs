@@ -5,19 +5,20 @@ namespace RemoveDiacritics.Tests
 {
     public class RemoverTests
     {
+        public const string DATA = "ÁČĎÉĚÍŇÓŘŠŤÚŮÝŽáčďéěíňóřšťúůýž";
+        public const string EXPECTED = "ACDEEINORSTUUYZacdeeinorstuuyz";
+
         [Fact]
         [Description("Tests all kind of diacritics, if they will get removed")]
         public void RemoveDiacriticsTest()
         {
             // Arrange
-            const string data = "ÁČĎÉĚÍŇÓŘŠŤÚŮÝŽáčďéěíňóřšťúůýž";
-            const string expected = "ACDEEINORSTUUYZacdeeinorstuuyz";
 
             // Act
-            var actual = Remover.RemoveDiacritics(data);
+            var actual = Remover.RemoveDiacritics(DATA);
 
             // Assert
-            Assert.Equal(expected, actual);
+            Assert.Equal(EXPECTED, actual);
         }
     }
 }

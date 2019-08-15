@@ -1,5 +1,6 @@
 using System;
 using System.Diagnostics;
+using System.Linq;
 using CommandLine;
 using Serilog;
 using Serilog.Events;
@@ -25,7 +26,7 @@ namespace RemoveDiacritics
                 .MapResult(
                     (StdInOptions opts) => RunActionAndReturnExitCode(opts, RemoverStdIn.StdInDiacriticsRemover),
                     (FileNamesOptions opts) => RunActionAndReturnExitCode(opts, () => RemoverFileNames.FileNamesDiacriticsRemover(opts.Dirs)),
-                    (ContentOptions opts) => RunActionAndReturnExitCode(opts, () => RemoverContent.ContentDiacriticsRemover(opts.Files)),
+                    (ContentOptions opts) => RunActionAndReturnExitCode(opts, () => RemoverContent.ContentDiacriticsRemover(opts.Files.ToArray())),
                     errors => 1);
         }
 

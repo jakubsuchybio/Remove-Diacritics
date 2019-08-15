@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.IO;
 using Serilog;
 
@@ -6,30 +5,33 @@ namespace RemoveDiacritics
 {
     public static class RemoverContent
     {
-        public static void ContentDiacriticsRemover(IEnumerable<string> files)
+        public static void ContentDiacriticsRemover(params string[] files)
         {
-            foreach (var fileName in files)
+            foreach (var filePath in files)
             {
-                if (!File.Exists(fileName))
+                if (!File.Exists(filePath))
                 {
-                    Log.Warning($"File: {fileName} does not exist...");
+                    Log.Warning($"File: {filePath} does not exist...");
                     continue;
                 }
 
                 try
                 {
-                    var strArray = File.ReadAllLines(fileName);
-                    using (var streamWriter = new StreamWriter("nodiacritics_" + fileName.Replace("\\", "")))
+                    var dirPath = Path.GetDirectoryName(filePath);
+                    var fileName = Path.GetFileName(filePath);
+
+                    var strArray = File.ReadAllLines(filePath);
+                    using (var streamWriter = new StreamWriter(Path.Combine(dirPath, "nodiacritics_" + fileName)))
                     {
                         foreach (var text in strArray)
                             streamWriter.WriteLine(Remover.RemoveDiacritics(text));
                     }
 
-                    Log.Information($"Processed file {fileName}");
+                    Log.Information($"Processed file {filePath}");
                 }
                 catch (IOException ex)
                 {
-                    Log.Error(ex, $"File {fileName} had IOException");
+                    Log.Error(ex, $"File {filePath} had IOException");
                 }
             }
         }

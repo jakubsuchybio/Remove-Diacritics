@@ -9,6 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 		GitVersion.yml = GitVersion.yml
+		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RemoveDiacritics.Tests", "test\RemoveDiacritics.Tests\RemoveDiacritics.Tests.csproj", "{629E726E-A8EC-4DE8-AEEC-65E5FD0ED8D2}"

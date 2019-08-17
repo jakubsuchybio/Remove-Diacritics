@@ -3,7 +3,7 @@ Console app, that can remove text diacritics from stdin, inside files and file/d
 
 [![Build Status](https://jakubsuchybio.visualstudio.com/Github%20CI%20CD/_apis/build/status/Remove-Diacritics?branchName=master&jobName=Build)](https://jakubsuchybio.visualstudio.com/Github%20CI%20CD/_build/latest?definitionId=1&branchName=master)
 
-### **Help content**
+## **Help content:**
 ```cmd
 > .\remove-diacritics.exe help
 remove-diacritics 1.0.16+Branch.master.Sha.301c567a42c94a9b8e8f824d9470b07975623407
@@ -56,9 +56,9 @@ Copyright (C) 2019 remove-diacritics
 
   --version      Display version information.
 ```
-### **Examples:**
+## **Examples:**
 ----
-#### **stdin** example
+### **stdin** example
 **input:**
 ```cmd
 echo ÁČĎÉĚÍŇÓŘŠŤÚŮÝŽáčďéěíňóřšťúůýž | remove-diacritics.exe stdin
@@ -68,7 +68,7 @@ echo ÁČĎÉĚÍŇÓŘŠŤÚŮÝŽáčďéěíňóřšťúůýž | remove-diacr
 ACDEEINORSTUUYZacdeeinorstuuyz
 ```
 ----
-#### **file-names** example
+### **file-names** example
 **input:**
 ```cmd
 echo > ÁČĎÉĚÍŇÓŘŠŤÚŮÝŽáčďéěíňóřšťúůýž.txt
@@ -79,7 +79,7 @@ remove-diacritics.exe file-names --directories .
 13:13:38.9467384 +02:00 [INF] [1] Renaming .\ACDÉEINORSTUUYZácdéeínórstúuyz.txt -> .\ACDEEINORSTUUYZacdeeinorstuuyz.txt
 ```
 ----
-#### **content** example
+### **content** example
 **input:**
 ```cmd
 echo ÁČĎÉĚÍŇÓŘŠŤÚŮÝŽáčďéěíňóřšťúůýž > test.txt

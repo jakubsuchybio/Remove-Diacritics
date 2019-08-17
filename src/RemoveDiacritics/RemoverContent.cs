@@ -18,6 +18,9 @@ namespace RemoveDiacritics
                 try
                 {
                     var dirPath = Path.GetDirectoryName(filePath);
+                    if(dirPath == null)
+                        continue;
+
                     var fileName = Path.GetFileName(filePath);
 
                     var strArray = File.ReadAllLines(filePath);

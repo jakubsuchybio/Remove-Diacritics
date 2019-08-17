@@ -9,14 +9,17 @@ jobs:
   build:
     runs-on: windows-latest
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@master
+    - uses: actions/setup-dotnet@master
+      with:
+        dotnet-version: '3.0.100-preview8' # SDK Version to use.
     - name: Build .NET
       run: dotnet build
   
   test:
     runs-on: windows-latest
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@master
     - name: Build .NET
       run: dotnet test
     

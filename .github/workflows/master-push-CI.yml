@@ -1,0 +1,22 @@
+name: master-push-CI
+
+on:
+  push:
+    branches:
+    - master
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Build .NET
+      run: dotnet build
+  
+  test:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Build .NET
+      run: dotnet test
+    

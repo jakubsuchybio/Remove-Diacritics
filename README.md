@@ -3,6 +3,18 @@ Console app, that can remove text diacritics from stdin, inside files and file/d
 
 [![Build Status](https://jakubsuchybio.visualstudio.com/Github%20CI%20CD/_apis/build/status/Remove-Diacritics?branchName=master&jobName=Build)](https://jakubsuchybio.visualstudio.com/Github%20CI%20CD/_build/latest?definitionId=1&branchName=master)
 
+Method for removing diacritics was chosen from this benchmark:
+https://github.com/jakubsuchybio/Benchmark-Diacritics
+
+## Complexity
+Time - everything is O(n), where n is the size of input
+
+Memory - stdin and content removers have O(n) memory consumption, where n is the size of input
+
+Memory - file-names remover have O(n) memory consumption, where n is the size of directory tree (names)
+
+Complexity can be definitelly improved by buffering, but I didn't see it important for my kind of use.
+
 ## **Help content:**
 ```cmd
 > .\remove-diacritics.exe help

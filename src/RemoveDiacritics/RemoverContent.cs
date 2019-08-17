@@ -22,6 +22,8 @@ namespace RemoveDiacritics
                         continue;
 
                     var fileName = Path.GetFileName(filePath);
+                    if(fileName == null)
+                        continue;
 
                     var strArray = File.ReadAllLines(filePath);
                     using (var streamWriter = new StreamWriter(Path.Combine(dirPath, "nodiacritics_" + fileName)))
